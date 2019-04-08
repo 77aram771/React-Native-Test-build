@@ -1,2 +1,2 @@
 export * from './Header';
-export * from './InageCard';
+export * from './ImageCard';

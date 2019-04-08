@@ -1,14 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 import {Header, ImageCard} from "./src/components/uikit";
 
 const url = 'https://raw.githubusercontent.com/77aram771/React-Native-Test-build/master/app/json.json';
-
 export default class App extends React.Component {
 
     state = {
         title: 'STAR GATE',
-        data: null
+        data: []
     };
 
     componentDidMount = async () => {
@@ -25,15 +24,37 @@ export default class App extends React.Component {
     };
 
     render() {
-        console.log(this.state.data);
+        const {title, data} = this.state;
+        const {container} = styles;
         return (
             <View>
-                <Header title={this.state.title}/>
-                <ImageCard/>
+                <Header title={title}/>
+                <ScrollView>
+                    <View style={container}>
+                        {
+                            data.map(item => (
+                                <ImageCard items={item} key={item.id}/>
+                            ))
+                        }
+
+                    </View>
+                </ScrollView>
             </View>
 
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 30,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        flexShrink: 2,
+        justifyContent: 'space-around',
+        alignItems: 'flex-start',
+        marginBottom: 150
+    }
+});
 
 
