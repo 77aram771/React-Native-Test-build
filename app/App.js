@@ -2,12 +2,20 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 export default class App extends React.Component {
-    render() {
-        console.log('hello');
 
+    state = {
+        title: 'STAR GATE'
+    };
+
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+    render() {
+        console.log('state', this.state);
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>STAR GATE</Text>
+                <Text style={styles.text}>{this.state.title}</Text>
             </View>
         );
     }
