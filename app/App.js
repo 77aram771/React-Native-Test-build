@@ -5,7 +5,7 @@ const url = 'https://raw.githubusercontent.com/77aram771/React-Native-Test-build
 export default class App extends React.Component {
 
     state = {
-        title: 'STAR GATE',
+        title: 'STAR G',
         data: []
     };
 
