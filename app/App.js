@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, ScrollView, StyleSheet} from 'react-native';
-import {Header, ImageCard} from "./src/components/uikit";
-
+import {View, ScrollView, Text} from 'react-native';
+import {Header, ImageCard, Layout} from "./src/components/uikit";
 const url = 'https://raw.githubusercontent.com/77aram771/React-Native-Test-build/master/app/json.json';
 export default class App extends React.Component {
 
@@ -25,36 +24,27 @@ export default class App extends React.Component {
 
     render() {
         const {title, data} = this.state;
-        const {container} = styles;
         return (
             <View>
                 <Header title={title}/>
                 <ScrollView>
-                    <View style={container}>
-                        {
-                            data.map(item => (
-                                <ImageCard items={item} key={item.id}/>
-                            ))
-                        }
-
+                    <View>
+                        <Layout>
+                            {
+                                data.map(item => (
+                                    <ImageCard items={item} key={item.id}/>
+                                ))
+                            }
+                        </Layout>
                     </View>
                 </ScrollView>
             </View>
 
         );
     }
+
 }
 
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 30,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        flexShrink: 2,
-        justifyContent: 'space-around',
-        alignItems: 'flex-start',
-        marginBottom: 150
-    }
-});
+
 
 

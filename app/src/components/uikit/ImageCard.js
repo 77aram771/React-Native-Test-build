@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     container: {
         width: w / 2.4,
         paddingVertical: 10,
+        borderColor: 'red',
+        borderStyle: 'solid',
+        borderWidth: 1
     },
     sub: {
         backgroundColor: 'white',
